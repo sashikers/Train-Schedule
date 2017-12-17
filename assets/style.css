@@ -14,11 +14,7 @@ input {
 	margin-right: 15px;
 }
 
-th {
-	padding: 5px;
-	margin: 5px;
-	font-weight: bold;
-}
+
 
 #trains {
 	text-align: center;
@@ -28,4 +24,33 @@ th {
 .row {
 	text-align: center;
 	margin: auto;
+}
+
+th, td {
+	border-bottom: 1px solid darkgray;
+}
+
+td {
+	padding: 5px;
+}
+
+th {
+	padding: 5px 15px 5px 15px;
+	margin: 5px;
+	font-weight: bold;
+	background-color: green;
+	color: white;
+}
+
+tr:nth-child(even) {
+	background-color: lightgray;
+}
+
+button {
+	background-color: #F46036;
+	border: solid 2px #414770;
+}
+
+body {
+	/*background-color: #5B85AA;*/
 }
