@@ -71,3 +71,13 @@ body {
 	background-color: #D8DBE2;
 	color: #373F51;
 }
+
+#current {
+	position: fixed;
+	left: 20px;
+	top: 120px;
+	font-weight: bold;
+	background-color: #DAA49A;
+	padding: 15px;
+	border: solid 3px #373F51;
+}
