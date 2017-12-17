@@ -5,6 +5,11 @@ h2 {
 .container {
 	text-align: center;
 }
+.jumbotron {
+	background-color: #58A4B0;
+	color: #373F51;
+	padding: 17px;
+}
 
 button {
 	margin: 10px;
@@ -12,6 +17,7 @@ button {
 
 input {
 	margin-right: 15px;
+	background-color: #DAA49A;
 }
 
 
@@ -27,7 +33,7 @@ input {
 }
 
 th, td {
-	border-bottom: 1px solid darkgray;
+	border-bottom: 1px solid #373F51;
 }
 
 td {
@@ -38,19 +44,23 @@ th {
 	padding: 5px 15px 5px 15px;
 	margin: 5px;
 	font-weight: bold;
-	background-color: green;
-	color: white;
+	background-color: #58A4B0;
+	color: #373F51;
 }
 
 tr:nth-child(even) {
-	background-color: lightgray;
+	/*background-color: #A9BCD0;*/
 }
 
 button {
-	background-color: #F46036;
-	border: solid 2px #414770;
+	background-color: #373F51;
+	border: solid 3px #58A4B0;
+	color: #58A4B0;
+	font-weight: bold;
+	padding: 5px;
 }
 
 body {
-	/*background-color: #5B85AA;*/
+	background-color: #D8DBE2;
+	color: #373F51;
 }
