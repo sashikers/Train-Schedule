@@ -34,27 +34,31 @@ db.on("child_added", function(snapshot) {
 	trainRecord.append(tdFirstTime);
 	// console.log("tdFirstTime", tdFirstTime);
 
-	// var tdFrequency = $("<td>");
+	var tdFrequency = $("<td>");
 	var frequency = snapshot.val().frequency;
-	// tdFrequency.html(frequency);
-	// trainRecord.append(tdFrequency);
+	tdFrequency.html(frequency);
+	trainRecord.append(tdFrequency);
 
 	var endOfDay = moment("24:00", "HH:mm");
 
-	console.log(endOfDay.diff(firstTime,"minutes"));
-	console.log("endOfDay", endOfDay);
+	// console.log(endOfDay.diff(firstTime,"minutes"));
+	// console.log("endOfDay", endOfDay);
 
 	var tdNextTrain = $("<td>");
 
 	for (var nextTrain = firstTime; endOfDay.diff(nextTrain, "minutes") > 0; nextTrain.add(frequency, "m")) {
 		if (nextTrain.diff(moment(), "minutes") < 0) {
-			console.log("already happened");
+			// console.log("wow");
+			tdNextTrain.html("Tomorrow <br>" + nextTrain.format("HH:mm"));
 		} else {
 			var minutesTilNextTrain = nextTrain.diff(moment(), "minutes");
+			console.log(minutesTilNextTrain);
 			tdNextTrain.html(nextTrain.format("HH:mm") + " <br>(in " + Math.floor(minutesTilNextTrain/60) + "hr " + minutesTilNextTrain%60 + "min)");
 			trainRecord.append(tdNextTrain);
 			break
 		}
+		console.log("hello");
+		trainRecord.append(tdNextTrain);
 	}
 	// var nextTrain = moment(snapshot.val().first_time, "HH:mm");
 	// console.log("snapshot.val().first_time", snapshot.val().first_time);
