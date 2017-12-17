@@ -1,0 +1,31 @@
+h2 {
+	font-size: 3em;
+}
+
+.container {
+	text-align: center;
+}
+
+button {
+	margin: 10px;
+}
+
+input {
+	margin-right: 15px;
+}
+
+th {
+	padding: 5px;
+	margin: 5px;
+	font-weight: bold;
+}
+
+#trains {
+	text-align: center;
+	margin: auto;
+}
+
+.row {
+	text-align: center;
+	margin: auto;
+}
