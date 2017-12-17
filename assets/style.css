@@ -17,9 +17,16 @@ button {
 
 input {
 	margin-right: 15px;
-	background-color: #DAA49A;
+	background-color: #A9BCD0;
+	/*border: #B5DDA4 solid 5px;*/
+	box-shadow: inset 0;
+	padding: 5px;
+	border-radius: 15px;
 }
-
+input:focus {
+	background-color: #DAA49A;
+	box-shadow: 0px;
+}
 
 
 #trains {

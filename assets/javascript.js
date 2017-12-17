@@ -10,6 +10,9 @@ var config = {
 firebase.initializeApp(config);
 var db = firebase.database().ref();
 
+var now = moment().format("HH:mm");
+console.log("now", now)
+
 db.on("child_added", function(snapshot) {
 	console.log("chil_added", snapshot.val());
 	var trainRecord = $("<tr>");
@@ -25,10 +28,16 @@ db.on("child_added", function(snapshot) {
 	var tdFirstTime = $("<td>");
 	tdFirstTime.html(snapshot.val().first_time);
 	trainRecord.append(tdFirstTime);
+	// console.log("tdFirstTime", tdFirstTime);
 
 	var tdFrequency = $("<td>");
 	tdFrequency.html(snapshot.val().frequency);
 	trainRecord.append(tdFrequency);
+
+	var tdTimeUntil = $("<td>");
+	var nextTrain = moment(snapshot.val().first_time, "HH:mm");
+	// console.log("snapshot.val().first_time", snapshot.val().first_time);
+	console.log("nextTrain", nextTrain); 
 
 	$("#trains").append(trainRecord);
 
