@@ -11,12 +11,13 @@ firebase.initializeApp(config);
 var db = firebase.database().ref();
 
 var now = moment().format("HH:mm");
+
 $("#current-time").html(now);
-console.log("now", now);
-console.log(moment());
+// console.log("now", now);
+// console.log(moment());
 
 db.on("child_added", function(snapshot) {
-	console.log("chil_added", snapshot.val());
+	console.log("child_added", snapshot.val());
 	var trainRecord = $("<tr>");
 
 	var tdName = $("<td>");
@@ -43,8 +44,20 @@ db.on("child_added", function(snapshot) {
 	console.log(endOfDay.diff(firstTime,"minutes"));
 	console.log("endOfDay", endOfDay);
 
-	for (var i = firstTime; endOfDay.diff(i, "minutes") > 0; i.add(frequency, "m")) {
-		console.log("hello");
+	var tdNextTrain = $("<td>");
+
+	for (var nextTrain = firstTime; endOfDay.diff(nextTrain, "minutes") > 0; nextTrain.add(frequency, "m")) {
+		// console.log("hello");
+		console.log(nextTrain.format("HH:mm"));
+		console.log(nextTrain.diff(moment(), "minutes"));
+		if (nextTrain.diff(moment(), "minutes") < 0) {
+			console.log("already happened");
+		} else {
+			console.log("minutes");
+			tdNextTrain.html(nextTrain.format("HH:mm"));
+			trainRecord.append(tdNextTrain);
+			break
+		}
 	}
 	// var nextTrain = moment(snapshot.val().first_time, "HH:mm");
 	// console.log("snapshot.val().first_time", snapshot.val().first_time);
@@ -52,7 +65,7 @@ db.on("child_added", function(snapshot) {
 
 	// console.log("second train is at ", moment(nextTrain.add(frequency, "minutes")).format("HH:mm"));
 
-	var tdTimeUntil = $("<td>");
+
 
 	$("#trains").append(trainRecord);
 
